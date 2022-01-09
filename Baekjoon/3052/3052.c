@@ -11,7 +11,7 @@ int main(){
             if(arr[i] == arr[j]) str++;
         }
         if(str == 0) check++;
-        str = 0;;
+        str = 0;
     }
     printf("%d\n", check);
     return 0;
