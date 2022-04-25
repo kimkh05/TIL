@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch MainTest",
+      "request": "launch",
+      "mainClass": "testJava.MainTest",
+      "projectName": "TIL_cfac9cde"
+    },
+    {
       "name": "Python: Current File",
       "type": "python",
       "request": "launch",
@@ -9,7 +16,6 @@
       "console": "integratedTerminal",
       "justMyCode": true
     },
-
     {
       "type": "lldb",
       "request": "launch",
