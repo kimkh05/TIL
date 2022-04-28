@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch test",
+      "request": "launch",
+      "mainClass": "javaTest.test",
+      "projectName": "TIL_cfac9cde"
+    },
+    {
+      "type": "java",
       "name": "Launch MainTest",
       "request": "launch",
       "mainClass": "testJava.MainTest",
