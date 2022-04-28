@@ -6,6 +6,7 @@ function solution(numbers) {
     });
 
   let count = 0;
+  // [0, 0, 0] 일때 예외처리
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "0") count++;
   }
@@ -15,7 +16,7 @@ function solution(numbers) {
     }
   }
 
-  const answer = str.join("");
+  const answer = str.join(""); // 문자열 합치기
   console.log(answer);
   return answer;
 }
