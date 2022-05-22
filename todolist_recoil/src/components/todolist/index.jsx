@@ -1,9 +1,31 @@
 import React, { useState } from "react";
-import { atom, useRecoilState, useRecoilValue } from "recoil";
+import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
 
 const todoListState = atom({
   key: "todoListState",
   default: [],
+});
+
+const todoListFilterState = atom({
+  key: "todoListFilterState",
+  default: "Show All",
+});
+
+const filteredTodoListState = selector({
+  key: "filteredTodoListState",
+  get: ({ get }) => {
+    const filter = get(todoListFilterState);
+    const list = get(todoListState);
+
+    switch (filter) {
+      case "Show Completed":
+        return list.filter((item) => item.isComplete);
+      case "Show Uncompleted":
+        return list.filter((item) => !item.isComplete);
+      default:
+        return list;
+    }
+  },
 });
 
 const Todolist = () => {
@@ -48,8 +70,8 @@ const TodoItemCreater = () => {
 let id = 0;
 
 function getId() {
-    return id++;
-  }
+  return id++;
+}
 
 const TodoItem = ({ item }) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
