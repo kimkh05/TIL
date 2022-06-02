@@ -17,6 +17,7 @@ export const LoginMenu = () => {
         password: loginInput.password,
       })
       .then((response) => {
+        alert("성공");
         console.log(response);
         setIsLog(!isLog);
         setRes(response.data);
