@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Button, Header } from "semantic-ui-react";
 import styles from "../itemList.module.css";
 
@@ -14,6 +15,9 @@ export default function Item({ item }) {
   } = item;
   return (
     <>
+        <Head>
+            <title>{name}</title>
+        </Head>
       <div className={styles.wrap}>
         <div className={styles.img_item}>
           <img src={image_link} alt={name} />

@@ -1,29 +1,24 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Loader } from "semantic-ui-react";
 import Item from "../../src/components/item/item";
 
-const Post = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const BASE_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
-
-  const [item, setItem] = useState({});
-
-  const getData = () => {
-    axios.get(BASE_URL).then((res) => {
-      console.log(res.data); 
-      setItem(res.data);
-    });
-  };
-
-  useEffect(() => { 
-    if (id && id > 0) {
-       getData();
-    }
-  }, []);
-
-  return <Item item={item } />;
+const Post = ({ item }) => {
+  return <>{item && <Item item={item} />}</>;
 };
 
 export default Post;
+
+export async function getServerSideProps(context) {
+  const id = context.params.id;
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
+  const res = await axios.get(apiUrl);
+  const data = res.data;
+
+  return {
+    props: {
+      item: data,
+    },
+  };
+}
