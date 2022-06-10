@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Item from "../../src/components/item/item";
 
 const Post = () => {
   const router = useRouter();
@@ -11,17 +12,18 @@ const Post = () => {
 
   const getData = () => {
     axios.get(BASE_URL).then((res) => {
-      console.log(res.data);
+      console.log(res.data); 
+      setItem(res.data);
     });
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     if (id && id > 0) {
-      getData();
+       getData();
     }
   }, []);
 
-  return <p>Post: {id}</p>;
+  return <Item item={item } />;
 };
 
 export default Post;

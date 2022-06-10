@@ -1,5 +1,5 @@
 import { Grid } from "semantic-ui-react";
-import styles from "./itemList.module.css";
+import styles from "../itemList.module.css";
 import Link from "next/link";
 
 export default function ItemList({ list }) {
@@ -8,7 +8,7 @@ export default function ItemList({ list }) {
       <Grid columns={3} divided>
         <Grid.Row>
           {list.map((item) => (
-            <Grid.Column>
+            <Grid.Column key={item.id}>
               <Link href={`/view/${item.id}`}>
                 <a>
                   <div className={styles.wrap}>
