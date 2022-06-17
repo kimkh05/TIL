@@ -1,11 +1,23 @@
 import axios from "axios";
-import { useRouter } from "next/router";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { Loader } from "semantic-ui-react";
 import Item from "../../src/components/item/item";
 
 const Post = ({ item }) => {
-  return <>{item && <Item item={item} />}</>;
+  return (
+    <>
+      {item && (
+        <>
+          <Head>
+            <title>{item.name}</title>
+            <meta name="description" content={item.description}></meta>
+          </Head>
+          <Item item={item} />
+        </>
+      )}
+    </>
+  );
 };
 
 export default Post;

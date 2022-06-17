@@ -26,6 +26,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Home | 코딩앙마</title>
+        <meta name="description" content="코딩 앙마 홈입니다."></meta>
       </Head>
       {isLoading && (
         <div style={{ padding: "300px 0" }}>
