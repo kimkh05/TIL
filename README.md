@@ -18,6 +18,7 @@
 
 ### Artificial Intelligence
 - CNN
+- 심층신경망
 
 ### Programming Language
 - Java
