@@ -3,7 +3,7 @@
 
 ## TIL
 
-### Algorithm
+### Algorithm(Using Programming Language: C, C++, JavaScript etc)
 - Baekjoon
 - Programmers
 
