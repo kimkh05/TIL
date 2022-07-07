@@ -1,22 +1,21 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-
-using namespace std;
+#include<stdio.h>
 
 int main(){
+  long long int dp[10001] = {0, };
   int n;
-  cin >> n;
-  vector<int> v(n);
-  vector<int> ve(n);
-  for(int i = 0; i < n; i++){
-    cin >> v[i];
-    ve[i] = v[i];
+  scanf("%d", &n);
+  dp[0] = 0;
+  dp[1] = 1;
+  if(n == 1){
+    printf("%lld\n", dp[1]);
+    return 0;
+  } else if(n == 0){
+    printf("%lld\n", dp[0]);
+    return 0;
   }
-  sort(v.begin(), v.end());
-  v.erase(unique(v.begin(), v.end()), v.end());
-  for(auto & c: ve){
-    cout << lower_bound(v.begin(), v.end(), c) - v.begin() << ' ';
+  for(int i = 2; i <= n; i++){
+    dp[i] = (dp[i-1] + dp[i-2]);
   }
+  printf("%lld\n", dp[n]);
   return 0;
 }
