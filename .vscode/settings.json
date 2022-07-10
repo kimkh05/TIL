@@ -1,6 +1,8 @@
 {
   "files.associations": {
     "10950.C": "cpp",
-    "iostream": "cpp"
-  }
+    "iostream": "cpp",
+    "vector": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
