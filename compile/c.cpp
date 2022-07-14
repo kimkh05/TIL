@@ -1,27 +1,32 @@
 #include<stdio.h>
 #include<string.h>
 
-#define MAXLEN 51
+#define MAXCHAR 21
+
+typedef struct{
+    char cloth[MAXCHAR], kind[MAXCHAR];
+}Wearing;
 
 int main(){
-    int sum = 0, temp = 0, arr[MAXLEN / 2], tmp = 0, answer;
-    char str[MAXLEN];
-    scanf("%s", str);
-    for(int i = 0 ; i <= strlen(str); i++){
-        if(str[i] == '-' || i == strlen(str)){
-            sum += temp;
-            arr[tmp++] = sum;
-            temp = sum = 0;
-        } else if(str[i] == '+'){
-            sum += temp;
-            temp = 0;
-        } else{
-            temp *= 10;
-            temp += str[i] - '0';
+    int n, k;
+    Wearing w;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        int day = 1, kindnum = 0, clothnum, arr[31];
+        char list[31][MAXCHAR], cloth[MAXCHAR], cloth_kind[MAXCHAR];
+        scanf("%d", &clothnum);
+        for(int j = 0; j < clothnum; j++){
+            scanf("%s %s", w.cloth, w.kind);
+            for(k = 0; k < kindnum; k++) if(strcmp(list[k], w.kind) == 0){
+                arr[k]++; break;
+            }
+            if(k == kindnum){
+                strcpy(list[kindnum], w.kind);
+                arr[kindnum++] = 1;
+            }
         }
+        for(int l = 0; l < kindnum; l++) day *= (arr[l] + 1);
+        printf("%d\n", day - 1);
     }
-    answer = arr[0];
-    for(int i = 1; i < tmp; i++) answer -= arr[i];
-    printf("%d\n", answer); 
     return 0;
 }
