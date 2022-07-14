@@ -13,7 +13,7 @@ int main(){
     scanf("%d", &n);
     for(int i = 0; i < n; i++){
         int day = 1, kindnum = 0, clothnum, arr[31];
-        char list[31][MAXCHAR], cloth[MAXCHAR], cloth_kind[MAXCHAR];
+        char list[31][MAXCHAR];
         scanf("%d", &clothnum);
         for(int j = 0; j < clothnum; j++){
             scanf("%s %s", w.cloth, w.kind);
